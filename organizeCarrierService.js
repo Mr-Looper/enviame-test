@@ -44,9 +44,10 @@ function organizeCarrierService(values, json){
         objectResult[keysObjectJson[i]] = { limit: json.data[keysObjectJson[i]].limit };
         for (var j = 0; j < auxCarrierService.length; j++) {
             const currentId = json.data[keysObjectJson[i]][`${auxCarrierService[j]}_carrier_service_id`];
-            objectResult[keysObjectJson[i]][auxCarrierService[j]] = values[currentId];
+            if(values[currentId]) objectResult[keysObjectJson[i]][auxCarrierService[j]] = values[currentId];
         }
     }
+    return objectResult
 }
 
 organizeCarrierService(values, json);
