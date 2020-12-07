@@ -8,6 +8,11 @@ El entregable puede ser un script que se pueda ejecutar por terminal o una web s
 
 
 function getPrimes(min, max) {
+    if(min > max){
+        const aux = max
+        max = min
+        min = aux 
+    }
     const primes = [];
     for (let i = min; i <= max; i++) {
         let isPrime = true;
